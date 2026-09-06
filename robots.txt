@@ -1,7 +1,5 @@
 User-agent: *
-Disallow: /OLD/
-Disallow: /TEST/
 
 Allow: /
 
-Sitemap: http://adrien.raux.free.fr/sitemap.xml
+Sitemap: https://adrien-raux.github.io/sitemap.xml
