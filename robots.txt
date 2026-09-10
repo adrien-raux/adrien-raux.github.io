@@ -2,4 +2,5 @@ User-agent: *
 
 Allow: /
 
-Sitemap: https://adrien-raux.github.io/sitemap.xml
+#Sitemap: https://adrien-raux.github.io/sitemap.xml
+Sitemap: https://adrien-raux.github.io/sitemap2.xml
