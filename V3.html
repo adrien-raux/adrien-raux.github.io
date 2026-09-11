@@ -3,6 +3,8 @@
 <head>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBX9TPFSH5"></script>
+  <!-- Google reCAPTCHA v3 -->
+<script src="https://www.google.com/recaptcha/api.js?render=6Ld__7UtAAAAAMF96ABlyEYae1E_iVWb1uXl6QV4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -1143,6 +1145,8 @@
       <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">Adrien RAUX - Angers (49)</p>
 
       <form id="contactForm">
+        <!-- Champ masqué qui recevra le token reCAPTCHA -->
+        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
           <div class="form-group">
             <label for="firstname">Prénom</label>
@@ -1326,23 +1330,34 @@
       });
     });
 
-    document.getElementById('contactForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
+   document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const submitBtn = document.getElementById('submitBtn');
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Vérification antispam...';
+
+  // Exécution de reCAPTCHA v3
+  grecaptcha.ready(function() {
+    grecaptcha.execute('VOTRE_CLE_DE_SITE', { action: 'submit' }).then(async function(token) {
       
-      const submitBtn = document.getElementById('submitBtn');
-      submitBtn.disabled = true;
+      // Injecte le token généré dans le champ caché
+      document.getElementById('g-recaptcha-response').value = token;
+
+      // Met à jour l'affichage du bouton
       submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Envoi en cours...';
 
+      // Envoi des données vers Formspree
       try {
         const response = await fetch(FORMSPREE_ENDPOINT, {
           method: 'POST',
-          body: new FormData(this),
+          body: new FormData(document.getElementById('contactForm')),
           headers: { 'Accept': 'application/json' }
         });
 
         if (response.ok) {
           showToast("Votre message a bien été envoyé !", 'success');
-          this.reset();
+          document.getElementById('contactForm').reset();
           closeContactModal();
         } else {
           const data = await response.json();
@@ -1358,6 +1373,8 @@
         submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Envoyer le message';
       }
     });
+  });
+});
   </script>
 </body>
 </html>
