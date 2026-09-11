@@ -1146,7 +1146,8 @@
           <label for="comment">Message</label>
           <textarea id="comment" name="message" rows="4" required placeholder="Détaillez votre projet ou opportunité..."></textarea>
         </div>
-
+        <!-- Champ piège (honeypot) pour bloquer le spam automatique Formspree -->
+        <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
         <button type="submit" id="submitBtn" class="btn-cv" style="width: 100%; justify-content: center; border: none; cursor: pointer; padding: 0.75rem !important;">
           <i class="fa-solid fa-paper-plane"></i> Envoyer le message
         </button>
@@ -1239,7 +1240,15 @@
         burgerToggle.addEventListener('click', (e) => {
           e.stopPropagation();
           toggleMenu();
-        });
+        }
+
+// Fermeture du menu mobile et de la modale avec la touche Échap
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeContactModal();
+      closeMenu();
+    }
+  });
       }
 
       mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
