@@ -654,10 +654,10 @@
     @media print {
       @page {
         size: A4 portrait;
-        margin: 0.8cm 1cm;
+        margin: 0.5cm 0.8cm;
       }
 
-      /* Masquage strict des éléments interactifs et hors flux */
+      /* Masquage des éléments interactifs */
       nav, .burger-btn, .btn-toggle-exp, .back-to-top, .toast-container, 
       .modal-overlay, .social-links, .quote-box, .exp-summary,
       #contactModal, #toastContainer, #backToTopBtn {
@@ -670,8 +670,8 @@
       body {
         background: #ffffff !important;
         color: #0f172a !important;
-        font-size: 9.5pt;
-        line-height: 1.35;
+        font-size: 8.5pt;
+        line-height: 1.25;
         -webkit-user-select: auto !important;
         -moz-user-select: auto !important;
         user-select: auto !important;
@@ -682,45 +682,37 @@
         max-width: 100% !important;
         display: flex !important;
         flex-direction: column !important;
-        gap: 0.8rem !important;
+        gap: 0.4rem !important;
       }
 
       section {
         scroll-margin-top: 0 !important;
-        margin-bottom: 0.4rem !important;
+        margin-bottom: 0.2rem !important;
       }
 
-      /* Saut de page strict sur la section Réalisations Majeures */
-      #experiences {
-        break-before: page !important;
-        page-break-before: always !important;
-        margin-top: 0 !important;
-        padding-top: 0 !important;
+      /* --- PAGE 1 --- */
+      #hero, #about, #skills {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
       }
 
-      #experiences .section-title {
-        break-after: avoid !important;
-        page-break-after: avoid !important;
-      }
-
-      /* Entête / Hero (Aéré) */
       .hero {
         display: flex !important;
         flex-direction: row-reverse !important;
         justify-content: space-between !important;
         align-items: center !important;
         padding-top: 0 !important;
-        gap: 1.2rem !important;
+        gap: 1rem !important;
         border-bottom: 2px solid #2563eb;
-        padding-bottom: 0.75rem !important;
-        margin-bottom: 0.6rem !important;
+        padding-bottom: 0.4rem !important;
+        margin-bottom: 0.3rem !important;
       }
 
-      .hero-content h1 { font-size: 1.65rem !important; margin-bottom: 0.3rem !important; }
-      .hero-content .subtitle { font-size: 1.05rem !important; margin-bottom: 0.45rem !important; }
-      .hero-content p { font-size: 9pt !important; line-height: 1.35 !important; margin-top: 0.4rem !important; }
-      .badges { margin-bottom: 0.4rem !important; gap: 0.35rem !important; }
-      .badge { font-size: 8pt !important; padding: 0.15rem 0.5rem !important; }
+      .hero-content h1 { font-size: 1.45rem !important; margin-bottom: 0.15rem !important; }
+      .hero-content .subtitle { font-size: 0.95rem !important; margin-bottom: 0.25rem !important; }
+      .hero-content p { font-size: 8pt !important; line-height: 1.2 !important; margin-top: 0.2rem !important; }
+      .badges { margin-bottom: 0.25rem !important; gap: 0.25rem !important; }
+      .badge { font-size: 7.5pt !important; padding: 0.1rem 0.35rem !important; }
 
       .profile-card {
         padding: 0 !important;
@@ -728,94 +720,117 @@
         box-shadow: none !important;
         background: transparent !important;
         text-align: center !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
       }
 
       .profile-img {
-        width: 82px !important;
-        height: 82px !important;
-        margin: 0 auto 0.3rem auto !important;
+        width: 70px !important;
+        height: 70px !important;
+        margin: 0 auto 0.2rem auto !important;
       }
 
-      .profile-card h3 { font-size: 1.05rem !important; margin: 0 !important; }
-      .profile-card p { font-size: 8pt !important; }
+      .profile-card h3 { font-size: 0.95rem !important; margin: 0 !important; }
+      .profile-card p { font-size: 7.5pt !important; }
 
-      /* Titres de section et blocs de contenu (Aérés pour la Page 1) */
       .section-title {
-        font-size: 1.15rem !important;
-        margin-top: 0.5rem !important;
-        margin-bottom: 0.2rem !important;
+        font-size: 1rem !important;
+        margin-top: 0.3rem !important;
+        margin-bottom: 0.1rem !important;
         border-bottom: 1px solid #e2e8f0;
-        padding-bottom: 0.15rem;
+        padding-bottom: 0.1rem;
       }
 
-      .section-subtitle { font-size: 8pt !important; margin-bottom: 0.5rem !important; }
-      .content-box { padding: 0.65rem 0.85rem !important; }
+      .section-subtitle { font-size: 7.5pt !important; margin-bottom: 0.25rem !important; }
+      .content-box { padding: 0.45rem 0.65rem !important; }
 
       .grid-3, .skills-grid {
         grid-template-columns: repeat(3, 1fr) !important;
-        gap: 0.55rem !important;
+        gap: 0.4rem !important;
         margin-bottom: 0 !important;
       }
 
-      .card-item { padding: 0.55rem 0.65rem !important; }
-      .card-item h3, .card-item h4 { font-size: 9pt !important; margin-bottom: 0.25rem !important; }
+      .card-item { padding: 0.4rem 0.5rem !important; }
+      .card-item h3, .card-item h4 { font-size: 8.5pt !important; margin-bottom: 0.15rem !important; }
 
-      /* Expériences (Aérées pour occuper proprement la Page 2) */
+      /* Mention Page 1 / 2 en bas à droite de la première page */
+      #skills::after {
+        content: "Page 1 / 2";
+        display: block;
+        text-align: right !important;
+        font-size: 7.5pt;
+        color: #64748b;
+        margin-top: 0.4rem;
+        padding-right: 0.2rem;
+      }
+
+      /* --- PAGE 2 --- */
+      #experiences {
+        break-before: page !important;
+        page-break-before: always !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+
       .exp-card {
-        padding: 0.55rem 0.75rem !important;
-        margin-bottom: 0.5rem !important;
+        padding: 0.35rem 0.55rem !important;
+        margin-bottom: 0.3rem !important;
         break-inside: avoid !important;
         page-break-inside: avoid !important;
       }
 
-      .exp-header { margin-bottom: 0.2rem !important; }
-      .exp-title { font-size: 9.5pt !important; }
-      .exp-company { font-size: 8.5pt !important; }
-      .exp-date { font-size: 7.5pt !important; padding: 0.1rem 0.35rem !important; }
+      .exp-header { margin-bottom: 0.1rem !important; }
+      .exp-title { font-size: 8.5pt !important; }
+      .exp-company { font-size: 8pt !important; }
+      .exp-date { font-size: 7pt !important; padding: 0.05rem 0.25rem !important; }
 
       .exp-details {
         display: block !important;
-        margin-top: 0.25rem !important;
-        padding-top: 0.25rem !important;
+        margin-top: 0.1rem !important;
+        padding-top: 0.1rem !important;
         border-top: none !important;
       }
 
-      .exp-subtitle { font-size: 8pt !important; margin: 0.3rem 0 0.1rem 0 !important; }
-      .exp-list { font-size: 8pt !important; padding-left: 0.9rem !important; }
-      .exp-list li { margin-bottom: 0.1rem !important; }
-      .tech-tag { font-size: 7pt !important; padding: 0.1rem 0.3rem !important; }
+      .exp-subtitle { font-size: 7.5pt !important; margin: 0.15rem 0 0.05rem 0 !important; }
+      .exp-list { font-size: 7.2pt !important; padding-left: 0.8rem !important; line-height: 1.2 !important; }
+      .exp-list li { margin-bottom: 0.05rem !important; }
+      .tech-tag { font-size: 6.5pt !important; padding: 0.05rem 0.2rem !important; }
 
-      /* Section Formations */
+      /* Section Formations maintenue sur la page 2 */
       #trainings { 
         break-inside: avoid !important; 
         page-break-inside: avoid !important; 
-        margin-top: 0.6rem !important;
+        margin-top: 0.3rem !important;
       }
-      #trainings .card-item { padding: 0.45rem 0.65rem !important; }
-      #trainings .card-item h3 { font-size: 8.5pt !important; margin-bottom: 0.15rem !important; }
-      #trainings .card-item p { font-size: 7.5pt !important; }
+      #trainings .card-item { padding: 0.35rem 0.5rem !important; }
+      #trainings .card-item h3 { font-size: 8pt !important; margin-bottom: 0.1rem !important; }
+      #trainings .card-item p { font-size: 7pt !important; }
 
       .hover-3d { border: 1px solid #cbd5e1 !important; box-shadow: none !important; }
 
-      #skills::after, footer::after {
-        content: none !important;
-      }
-
+      /* FOOTER & PAGINATION PAGE 2 / 2 */
       footer {
         display: block !important;
+        position: relative !important;
         text-align: center !important;
-        padding: 0.3rem 0 0 0 !important;
-        margin-top: 0.6rem !important;
+        padding: 0.25rem 0 0 0 !important;
+        margin-top: 0.4rem !important;
         font-size: 7.5pt !important;
         border-top: 1px solid #e2e8f0 !important;
+        break-inside: avoid !important;
       }
 
       footer p {
         text-align: center !important;
         margin: 0 !important;
+      }
+
+      /* Mention Page 2 / 2 alignée à droite sous la ligne du footer */
+      footer::after {
+        content: "Page 2 / 2";
+        position: absolute;
+        right: 0;
+        top: 0.25rem;
+        font-size: 7.5pt;
+        color: #64748b;
       }
     }
   </style>
@@ -839,7 +854,7 @@
         <li><a href="#about" class="mobile-link">Présentation</a></li>
         <li><a href="#skills" class="mobile-link">Expertise</a></li>
         <li><a href="#experiences" class="mobile-link">Réalisations</a></li>
-        <li><a href="#trainings" class="mobile-link">Formations</a></li>
+        <li><a href="#trainings" class="mobile-link">Formation</a></li>
         <li><button class="nav-btn mobile-link" id="contactMenuBtn">Contact</button></li>
         <li class="desktop-only">
           <a href="./CV_Adrien_RAUX.pdf" target="_blank" class="btn-cv">
@@ -1075,7 +1090,7 @@
     </section>
 
     <section id="trainings">
-      <h2 class="section-title"><i class="fa-solid fa-graduation-cap" style="color:var(--accent);"></i> Formations & Diplômes</h2>
+      <h2 class="section-title"><i class="fa-solid fa-graduation-cap" style="color:var(--accent);"></i> Formation & Diplômes</h2>
       <p class="section-subtitle">Solide socle académique d'ingénierie généraliste</p>
 
       <div class="grid-3">
