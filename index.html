@@ -654,10 +654,10 @@
     @media print {
       @page {
         size: A4 portrait;
-        margin: 0.5cm 0.8cm;
+        margin: 0.8cm 1cm;
       }
 
-      /* Masquage des éléments interactifs */
+      /* Masquage des éléments interactifs et modales */
       nav, .burger-btn, .btn-toggle-exp, .back-to-top, .toast-container, 
       .modal-overlay, .social-links, .quote-box, .exp-summary,
       #contactModal, #toastContainer, #backToTopBtn {
@@ -670,8 +670,8 @@
       body {
         background: #ffffff !important;
         color: #0f172a !important;
-        font-size: 8.5pt;
-        line-height: 1.25;
+        font-size: 9.2pt;
+        line-height: 1.35;
         -webkit-user-select: auto !important;
         -moz-user-select: auto !important;
         user-select: auto !important;
@@ -682,37 +682,32 @@
         max-width: 100% !important;
         display: flex !important;
         flex-direction: column !important;
-        gap: 0.4rem !important;
+        gap: 0.6rem !important;
       }
 
       section {
         scroll-margin-top: 0 !important;
-        margin-bottom: 0.2rem !important;
+        margin-bottom: 0.3rem !important;
       }
 
-      /* --- PAGE 1 --- */
-      #hero, #about, #skills {
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-      }
-
+      /* --- PAGE 1 : Entête, Présentation, Expertise & Outillage --- */
       .hero {
         display: flex !important;
         flex-direction: row-reverse !important;
         justify-content: space-between !important;
         align-items: center !important;
         padding-top: 0 !important;
-        gap: 1rem !important;
+        gap: 1.2rem !important;
         border-bottom: 2px solid #2563eb;
-        padding-bottom: 0.4rem !important;
-        margin-bottom: 0.3rem !important;
+        padding-bottom: 0.6rem !important;
+        margin-bottom: 0.5rem !important;
       }
 
-      .hero-content h1 { font-size: 1.45rem !important; margin-bottom: 0.15rem !important; }
-      .hero-content .subtitle { font-size: 0.95rem !important; margin-bottom: 0.25rem !important; }
-      .hero-content p { font-size: 8pt !important; line-height: 1.2 !important; margin-top: 0.2rem !important; }
-      .badges { margin-bottom: 0.25rem !important; gap: 0.25rem !important; }
-      .badge { font-size: 7.5pt !important; padding: 0.1rem 0.35rem !important; }
+      .hero-content h1 { font-size: 1.6rem !important; margin-bottom: 0.25rem !important; }
+      .hero-content .subtitle { font-size: 1.05rem !important; margin-bottom: 0.35rem !important; }
+      .hero-content p { font-size: 8.8pt !important; line-height: 1.3 !important; margin-top: 0.3rem !important; }
+      .badges { margin-bottom: 0.35rem !important; gap: 0.3rem !important; }
+      .badge { font-size: 8pt !important; padding: 0.12rem 0.45rem !important; }
 
       .profile-card {
         padding: 0 !important;
@@ -723,46 +718,62 @@
       }
 
       .profile-img {
-        width: 70px !important;
-        height: 70px !important;
-        margin: 0 auto 0.2rem auto !important;
+        width: 80px !important;
+        height: 80px !important;
+        margin: 0 auto 0.25rem auto !important;
       }
 
-      .profile-card h3 { font-size: 0.95rem !important; margin: 0 !important; }
-      .profile-card p { font-size: 7.5pt !important; }
+      .profile-card h3 { font-size: 1.05rem !important; margin: 0 !important; }
+      .profile-card p { font-size: 8pt !important; }
 
       .section-title {
-        font-size: 1rem !important;
-        margin-top: 0.3rem !important;
-        margin-bottom: 0.1rem !important;
+        font-size: 1.1rem !important;
+        margin-top: 0.4rem !important;
+        margin-bottom: 0.15rem !important;
         border-bottom: 1px solid #e2e8f0;
-        padding-bottom: 0.1rem;
+        padding-bottom: 0.12rem;
       }
 
-      .section-subtitle { font-size: 7.5pt !important; margin-bottom: 0.25rem !important; }
-      .content-box { padding: 0.45rem 0.65rem !important; }
+      .section-subtitle { font-size: 7.8pt !important; margin-bottom: 0.4rem !important; }
+      .content-box { padding: 0.55rem 0.75rem !important; }
 
       .grid-3, .skills-grid {
         grid-template-columns: repeat(3, 1fr) !important;
-        gap: 0.4rem !important;
+        gap: 0.5rem !important;
         margin-bottom: 0 !important;
       }
 
-      .card-item { padding: 0.4rem 0.5rem !important; }
-      .card-item h3, .card-item h4 { font-size: 8.5pt !important; margin-bottom: 0.15rem !important; }
+      .card-item { padding: 0.5rem 0.6rem !important; }
+      .card-item h3, .card-item h4 { font-size: 8.8pt !important; margin-bottom: 0.2rem !important; }
 
-      /* Mention Page 1 / 2 en bas à droite de la première page */
+      /* FOOTER PAGE 1 (Ligne de Copyright + "Page 1 / 2" situé 2 lignes sous le footer) */
+      #skills {
+        position: relative !important;
+        padding-bottom: 2rem !important;
+      }
+
+      #skills::before {
+        content: "© Adrien RAUX - Chef de Projets Senior CAPEX & Transition Énergétique";
+        display: block;
+        text-align: center;
+        font-size: 7.5pt;
+        color: #64748b;
+        border-top: 1px solid #e2e8f0;
+        padding-top: 0.3rem;
+        margin-top: 0.8rem;
+      }
+
       #skills::after {
         content: "Page 1 / 2";
         display: block;
-        text-align: right !important;
+        text-align: right;
         font-size: 7.5pt;
         color: #64748b;
-        margin-top: 0.4rem;
+        margin-top: 1.2em; /* Décale le texte exactement 2 lignes sous la ligne du footer */
         padding-right: 0.2rem;
       }
 
-      /* --- PAGE 2 --- */
+      /* --- PAGE 2 : Réalisations Majeures & Formations --- */
       #experiences {
         break-before: page !important;
         page-break-before: always !important;
@@ -771,49 +782,50 @@
       }
 
       .exp-card {
-        padding: 0.35rem 0.55rem !important;
-        margin-bottom: 0.3rem !important;
+        padding: 0.4rem 0.6rem !important;
+        margin-bottom: 0.35rem !important;
         break-inside: avoid !important;
         page-break-inside: avoid !important;
       }
 
-      .exp-header { margin-bottom: 0.1rem !important; }
-      .exp-title { font-size: 8.5pt !important; }
+      .exp-header { margin-bottom: 0.12rem !important; }
+      .exp-title { font-size: 8.8pt !important; }
       .exp-company { font-size: 8pt !important; }
-      .exp-date { font-size: 7pt !important; padding: 0.05rem 0.25rem !important; }
+      .exp-date { font-size: 7.2pt !important; padding: 0.05rem 0.3rem !important; }
 
       .exp-details {
         display: block !important;
-        margin-top: 0.1rem !important;
-        padding-top: 0.1rem !important;
+        margin-top: 0.15rem !important;
+        padding-top: 0.15rem !important;
         border-top: none !important;
       }
 
-      .exp-subtitle { font-size: 7.5pt !important; margin: 0.15rem 0 0.05rem 0 !important; }
-      .exp-list { font-size: 7.2pt !important; padding-left: 0.8rem !important; line-height: 1.2 !important; }
-      .exp-list li { margin-bottom: 0.05rem !important; }
-      .tech-tag { font-size: 6.5pt !important; padding: 0.05rem 0.2rem !important; }
+      .exp-subtitle { font-size: 7.5pt !important; margin: 0.2rem 0 0.08rem 0 !important; }
+      .exp-list { font-size: 7.5pt !important; padding-left: 0.85rem !important; line-height: 1.25 !important; }
+      .exp-list li { margin-bottom: 0.08rem !important; }
+      .tech-tag { font-size: 6.8pt !important; padding: 0.05rem 0.25rem !important; }
 
-      /* Section Formations maintenue sur la page 2 */
+      /* Section Formations */
       #trainings { 
         break-inside: avoid !important; 
         page-break-inside: avoid !important; 
-        margin-top: 0.3rem !important;
+        margin-top: 0.4rem !important;
       }
-      #trainings .card-item { padding: 0.35rem 0.5rem !important; }
-      #trainings .card-item h3 { font-size: 8pt !important; margin-bottom: 0.1rem !important; }
-      #trainings .card-item p { font-size: 7pt !important; }
+      #trainings .card-item { padding: 0.4rem 0.55rem !important; }
+      #trainings .card-item h3 { font-size: 8.2pt !important; margin-bottom: 0.1rem !important; }
+      #trainings .card-item p { font-size: 7.2pt !important; }
 
       .hover-3d { border: 1px solid #cbd5e1 !important; box-shadow: none !important; }
 
-      /* FOOTER & PAGINATION PAGE 2 / 2 */
+      /* FOOTER PAGE 2 (Ligne de Copyright + "Page 2 / 2" situé 2 lignes sous le footer) */
       footer {
         display: block !important;
         position: relative !important;
         text-align: center !important;
-        padding: 0.25rem 0 0 0 !important;
-        margin-top: 0.4rem !important;
+        padding-top: 0.3rem !important;
+        margin-top: 0.6rem !important;
         font-size: 7.5pt !important;
+        color: #64748b !important;
         border-top: 1px solid #e2e8f0 !important;
         break-inside: avoid !important;
       }
@@ -823,14 +835,14 @@
         margin: 0 !important;
       }
 
-      /* Mention Page 2 / 2 alignée à droite sous la ligne du footer */
       footer::after {
         content: "Page 2 / 2";
-        position: absolute;
-        right: 0;
-        top: 0.25rem;
+        display: block;
+        text-align: right;
         font-size: 7.5pt;
         color: #64748b;
+        margin-top: 1.2em; /* Décale le texte exactement 2 lignes sous la ligne du footer */
+        padding-right: 0.2rem;
       }
     }
   </style>
