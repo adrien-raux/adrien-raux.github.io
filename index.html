@@ -654,10 +654,10 @@
     @media print {
       @page {
         size: A4 portrait;
-        margin: 0.6cm 0.8cm;
+        margin: 0.8cm 1cm;
       }
 
-      /* Suppression stricte des éléments inutiles et hors flux */
+      /* Masquage strict des éléments interactifs et hors flux */
       nav, .burger-btn, .btn-toggle-exp, .back-to-top, .toast-container, 
       .modal-overlay, .social-links, .quote-box, .exp-summary,
       #contactModal, #toastContainer, #backToTopBtn {
@@ -670,8 +670,8 @@
       body {
         background: #ffffff !important;
         color: #0f172a !important;
-        font-size: 9pt;
-        line-height: 1.3;
+        font-size: 9.5pt;
+        line-height: 1.35;
         -webkit-user-select: auto !important;
         -moz-user-select: auto !important;
         user-select: auto !important;
@@ -682,18 +682,20 @@
         max-width: 100% !important;
         display: flex !important;
         flex-direction: column !important;
-        gap: 0.5rem !important;
+        gap: 0.8rem !important;
       }
 
       section {
         scroll-margin-top: 0 !important;
-        margin-bottom: 0.2rem !important;
+        margin-bottom: 0.4rem !important;
       }
 
-      /* On laisse le flux naturel gérer la transition sans forcer de saut de page artificiel */
+      /* Saut de page strict sur la section Réalisations Majeures */
       #experiences {
-        break-before: auto !important;
-        page-break-before: auto !important;
+        break-before: page !important;
+        page-break-before: always !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
       }
 
       #experiences .section-title {
@@ -701,23 +703,24 @@
         page-break-after: avoid !important;
       }
 
+      /* Entête / Hero (Aéré) */
       .hero {
         display: flex !important;
         flex-direction: row-reverse !important;
         justify-content: space-between !important;
         align-items: center !important;
         padding-top: 0 !important;
-        gap: 1rem !important;
+        gap: 1.2rem !important;
         border-bottom: 2px solid #2563eb;
-        padding-bottom: 0.5rem !important;
-        margin-bottom: 0.4rem !important;
+        padding-bottom: 0.75rem !important;
+        margin-bottom: 0.6rem !important;
       }
 
-      .hero-content h1 { font-size: 1.5rem !important; margin-bottom: 0.2rem !important; }
-      .hero-content .subtitle { font-size: 0.95rem !important; margin-bottom: 0.3rem !important; }
-      .hero-content p { font-size: 8.5pt !important; line-height: 1.25 !important; margin-top: 0.3rem !important; }
-      .badges { margin-bottom: 0.3rem !important; gap: 0.25rem !important; }
-      .badge { font-size: 7.5pt !important; padding: 0.1rem 0.4rem !important; }
+      .hero-content h1 { font-size: 1.65rem !important; margin-bottom: 0.3rem !important; }
+      .hero-content .subtitle { font-size: 1.05rem !important; margin-bottom: 0.45rem !important; }
+      .hero-content p { font-size: 9pt !important; line-height: 1.35 !important; margin-top: 0.4rem !important; }
+      .badges { margin-bottom: 0.4rem !important; gap: 0.35rem !important; }
+      .badge { font-size: 8pt !important; padding: 0.15rem 0.5rem !important; }
 
       .profile-card {
         padding: 0 !important;
@@ -731,66 +734,72 @@
       }
 
       .profile-img {
-        width: 75px !important;
-        height: 75px !important;
-        margin: 0 auto 0.2rem auto !important;
+        width: 82px !important;
+        height: 82px !important;
+        margin: 0 auto 0.3rem auto !important;
       }
 
-      .profile-card h3 { font-size: 1rem !important; margin: 0 !important; }
-      .profile-card p { font-size: 7.5pt !important; }
+      .profile-card h3 { font-size: 1.05rem !important; margin: 0 !important; }
+      .profile-card p { font-size: 8pt !important; }
 
+      /* Titres de section et blocs de contenu (Aérés pour la Page 1) */
       .section-title {
-        font-size: 1.05rem !important;
-        margin-top: 0.3rem !important;
-        margin-bottom: 0.1rem !important;
+        font-size: 1.15rem !important;
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.2rem !important;
         border-bottom: 1px solid #e2e8f0;
-        padding-bottom: 0.1rem;
+        padding-bottom: 0.15rem;
       }
 
-      .section-subtitle { font-size: 7.5pt !important; margin-bottom: 0.3rem !important; }
-      .content-box { padding: 0.4rem 0.6rem !important; }
+      .section-subtitle { font-size: 8pt !important; margin-bottom: 0.5rem !important; }
+      .content-box { padding: 0.65rem 0.85rem !important; }
 
       .grid-3, .skills-grid {
         grid-template-columns: repeat(3, 1fr) !important;
-        gap: 0.4rem !important;
+        gap: 0.55rem !important;
         margin-bottom: 0 !important;
       }
 
-      .card-item { padding: 0.4rem 0.5rem !important; }
-      .card-item h3, .card-item h4 { font-size: 8.5pt !important; margin-bottom: 0.2rem !important; }
+      .card-item { padding: 0.55rem 0.65rem !important; }
+      .card-item h3, .card-item h4 { font-size: 9pt !important; margin-bottom: 0.25rem !important; }
 
+      /* Expériences (Aérées pour occuper proprement la Page 2) */
       .exp-card {
-        padding: 0.4rem 0.6rem !important;
-        margin-bottom: 0.35rem !important;
+        padding: 0.55rem 0.75rem !important;
+        margin-bottom: 0.5rem !important;
         break-inside: avoid !important;
         page-break-inside: avoid !important;
       }
 
-      .exp-header { margin-bottom: 0.1rem !important; }
-      .exp-title { font-size: 9pt !important; }
-      .exp-company { font-size: 8pt !important; }
-      .exp-date { font-size: 7pt !important; padding: 0.05rem 0.3rem !important; }
+      .exp-header { margin-bottom: 0.2rem !important; }
+      .exp-title { font-size: 9.5pt !important; }
+      .exp-company { font-size: 8.5pt !important; }
+      .exp-date { font-size: 7.5pt !important; padding: 0.1rem 0.35rem !important; }
 
       .exp-details {
         display: block !important;
-        margin-top: 0.15rem !important;
-        padding-top: 0.15rem !important;
+        margin-top: 0.25rem !important;
+        padding-top: 0.25rem !important;
         border-top: none !important;
       }
 
-      .exp-subtitle { font-size: 7.5pt !important; margin: 0.2rem 0 0.05rem 0 !important; }
-      .exp-list { font-size: 7.5pt !important; padding-left: 0.8rem !important; }
-      .exp-list li { margin-bottom: 0.05rem !important; }
-      .tech-tag { font-size: 6.5pt !important; padding: 0.05rem 0.25rem !important; }
+      .exp-subtitle { font-size: 8pt !important; margin: 0.3rem 0 0.1rem 0 !important; }
+      .exp-list { font-size: 8pt !important; padding-left: 0.9rem !important; }
+      .exp-list li { margin-bottom: 0.1rem !important; }
+      .tech-tag { font-size: 7pt !important; padding: 0.1rem 0.3rem !important; }
 
-      #trainings { break-inside: avoid !important; page-break-inside: avoid !important; }
-      #trainings .card-item { padding: 0.35rem 0.5rem !important; }
-      #trainings .card-item h3 { font-size: 8pt !important; margin-bottom: 0.1rem !important; }
-      #trainings .card-item p { font-size: 7pt !important; }
+      /* Section Formations */
+      #trainings { 
+        break-inside: avoid !important; 
+        page-break-inside: avoid !important; 
+        margin-top: 0.6rem !important;
+      }
+      #trainings .card-item { padding: 0.45rem 0.65rem !important; }
+      #trainings .card-item h3 { font-size: 8.5pt !important; margin-bottom: 0.15rem !important; }
+      #trainings .card-item p { font-size: 7.5pt !important; }
 
       .hover-3d { border: 1px solid #cbd5e1 !important; box-shadow: none !important; }
 
-      /* Supprimé : les ::after artificiels qui créaient des pages blanches */
       #skills::after, footer::after {
         content: none !important;
       }
@@ -798,9 +807,9 @@
       footer {
         display: block !important;
         text-align: center !important;
-        padding: 0.2rem 0 0 0 !important;
-        margin-top: 0.3rem !important;
-        font-size: 7pt !important;
+        padding: 0.3rem 0 0 0 !important;
+        margin-top: 0.6rem !important;
+        font-size: 7.5pt !important;
         border-top: 1px solid #e2e8f0 !important;
       }
 
